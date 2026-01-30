@@ -50,6 +50,12 @@ pub struct IIOContext {
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
 }
 
+unsafe impl Send for IIOBuffer {}
+unsafe impl Sync for IIOBuffer {}
+
+unsafe impl Send for IIOContext {}
+unsafe impl Sync for IIOContext {}
+
 #[repr(C)]
 pub struct IIOScanContext {
     _data: (),
